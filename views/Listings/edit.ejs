@@ -1,0 +1,89 @@
+<% layout("/layouts/boilerplate"); %>
+<div class="row justify-content-center my-5">
+    <div class="col-md-8 shadow-lg p-4 rounded bg-light">
+        <h3 class="text-center text-primary mb-4">Update Your Listing</h3>
+        <form method="POST" action="/listings/<%= listing.id %>?_method=PUT" enctype="multipart/form-data" novalidate class="needs-validation">
+            
+            <!-- Title -->
+            <div class="mb-3">
+                <label for="title" class="form-label"><b>Title</b></label>
+                <input 
+                    name="title" 
+                    type="text" 
+                    value="<%= listing.title %>" 
+                    class="form-control border-primary" 
+                    placeholder="Enter a catchy title" 
+                    required>
+                <div class="invalid-feedback">Please enter a valid title.</div>
+            </div>
+
+            <!-- Description -->
+            <div class="mb-3">
+                <label for="description" class="form-label"><b>Description</b></label>
+                <textarea 
+                    name="description" 
+                    class="form-control border-primary" 
+                    placeholder="Provide a detailed description" 
+                    rows="4" 
+                    required><%= listing.description %></textarea>
+                <div class="invalid-feedback">Please enter a valid description.</div>
+            </div>
+
+            <!-- Original Image -->
+            <div class="mb-3 text-center">
+                <p class="text-muted">Original Image</p>
+                <img src="<%= ChangedImage %>" class="img-fluid rounded border shadow-sm" alt="Listing Image">
+            </div>
+
+            <!-- Image Upload -->
+            <div class="mb-3">
+                <label for="data" class="form-label"><b>Upload New Image</b></label>
+                <input name="data" type="file" class="form-control border-primary">
+            </div>
+
+            <!-- Price and Location -->
+            <div class="row">
+                <div class="mb-3 col-md-4">
+                    <label for="price" class="form-label"><b>Price</b></label>
+                    <input 
+                        name="price" 
+                        type="text" 
+                        value="<%= listing.price %>" 
+                        class="form-control border-primary" 
+                        placeholder="Enter price (e.g., 1200)" 
+                        required>
+                    <div class="invalid-feedback">Please enter a valid price.</div>
+                </div>
+                <div class="mb-3 col-md-8">
+                    <label for="location" class="form-label"><b>Location</b></label>
+                    <input 
+                        name="location" 
+                        type="text" 
+                        value="<%= listing.location %>" 
+                        class="form-control border-primary" 
+                        placeholder="Enter location (e.g., Nagpur, Maharashtra)" 
+                        required>
+                    <div class="invalid-feedback">Please enter a valid location.</div>
+                </div>
+            </div>
+
+            <!-- Country -->
+            <div class="mb-3">
+                <label for="country" class="form-label"><b>Country</b></label>
+                <input 
+                    name="country" 
+                    type="text" 
+                    value="<%= listing.country %>" 
+                    class="form-control border-primary" 
+                    placeholder="Enter country (e.g., India)" 
+                    required>
+                <div class="invalid-feedback">Please enter a valid country name.</div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-dark px-4 py-2 shadow-sm">Update Listing</button>
+            </div>
+        </form>
+    </div>
+</div>

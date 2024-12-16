@@ -1,0 +1,52 @@
+<% layout("/layouts/boilerplate"); %>
+
+<body class="bg-light">
+
+    <!-- Success Alert -->
+    <% if (success && success.length > 0) { %>
+        <div class="alert alert-success alert-dismissible fade show col-md-4 offset-md-4 mt-3 text-center" role="alert">
+            <%= success %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <% } %>
+
+    <!-- Welcome Image Section -->
+    <div class="welcome-image-container position-relative text-center">
+        <img src="https://cdn.prod.website-files.com/63b9c43cf803b0331540fa68/67093e612109d5ac6e754a3e_how%20to%20write%20AI%20art%20prompts.jpeg" 
+             class="welcome-image img-fluid w-100" 
+             alt="Welcome Image" 
+             style="max-height: 500px; object-fit: cover;">
+        <div class="welcome-text position-absolute top-50 start-50 translate-middle text-white">
+            <h1 class="display-4 fw-bold mb-3">Welcome To World Of Design</h1>
+            <button onclick="location.href='#all-listings'" class="btn btn-primary px-4 py-2 shadow">Shop Now</button>
+        </div>
+    </div>
+
+    <!-- All Listings Heading -->
+    <div class="text-center my-5">
+        <h3 id="all-listings" class="text-uppercase text-primary fw-bold">All Designing Art</h3>
+        <hr class="w-25 mx-auto">
+        <hr class="w-25 mx-auto">
+    </div>
+
+    <!-- Listings Section -->
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <% for (let list of listingAll) { %>
+                <div class="col">
+                    <a href="/listings/<%= list._id %>" class="text-decoration-none">
+                        <div class="card listing-card h-100 shadow-sm">
+                            <img src="<%= list.image.url %>" class="card-img-top" alt="Listing Image" style="height: 15rem; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary"><%= list.title %></h5>
+                                <p class="card-text text-muted">
+                                    &#8377; <%= list.price %>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</body>
