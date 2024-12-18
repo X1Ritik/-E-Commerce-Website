@@ -11,7 +11,7 @@ async function main() {
     try {
         await mongoose.connect(mongoUrl);  // No need for useNewUrlParser and useUnifiedTopology in newer versions
         console.log("Connected to MongoDB");
-    } 
+    }
     catch (err) {
         console.error("Error connecting to MongoDB:", err);
     }
