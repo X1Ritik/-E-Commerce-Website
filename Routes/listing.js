@@ -20,11 +20,11 @@ let validateListing = (req, res, next) => {
     }
 }
 
-// Route to get all listings
 router.get("/", wrapAsync(async (req, res) => {
     const listingAll = await Listing.find({});
-    res.render("Listings/index", { listingAll });
+    res.render("Listings/index", { listingAll, currUser: req.user }); // Pass currUser to the template
 }));
+
 
 // Route to show the form to create a new listing
 router.get("/new", isLogin, (req, res) => {
