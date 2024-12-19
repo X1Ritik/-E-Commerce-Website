@@ -79,7 +79,8 @@ app.use((err, req, res, next) => {
 app.all("*", (req, res, next) => {
   logger.info('404 error');
   next(new ExpressError(404, "Page not found!"));
-});tou
+});
+
 async function main() {
     try {
         await mongoose.connect(dburl, { useNewUrlParser: true, useUnifiedTopology: true });
