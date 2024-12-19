@@ -122,12 +122,7 @@ router.get("/:id/buy", isLogin, wrapAsync(async (req, res) => {
     res.render("Listings/Mail", {email});
 }));
 
-// Base route for all listings
-router.get("/", wrapAsync(async (req, res) => {
-    console.log("this is list");
-    const listingAll = await Listing.find({});
-    res.render("Listings/index", { listingAll });
-}));
+// Base route for all listin
 
 // Route to update a specific listing
 router.put("/:id",
