@@ -20,7 +20,7 @@ const User = require("./model/user.js");
 const ListingsRoutes = require("./Routes/listing.js");
 const ReviewRoutes = require("./Routes/reviews.js");
 const UserRoutes = require("./Routes/user.js");
-
+const winston = require('winston');
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
