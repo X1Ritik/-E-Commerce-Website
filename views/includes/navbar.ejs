@@ -87,7 +87,7 @@
             <!-- Right-aligned links -->
             <div class="navbar-nav ms-auto">
               <a class="nav-link active" href="/listings/new">Add New Design</a>
-              <% if (typeof currUser === "undefined" || !currUser) { %>
+              <% if (!currUser) { %>
                 <a class="nav-link active" href="/signup"><b>Sign Up</b></a>
                 <a class="nav-link active" href="/login"><b>Log In</b></a>
               <% } else { %>
